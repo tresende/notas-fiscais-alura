@@ -1,0 +1,27 @@
+{
+  "name": "notas-fiscais-alura",
+  "version": "1.0.0",
+  "description": "Alura - Curso JS: De padrões a uma abordagem funcional",
+  "main": "server.js",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "cors": "^2.8.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tresende/notas-fiscais-alura.git"
+  },
+  "author": "Thiago Resende",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tresende/notas-fiscais-alura/issues"
+  },
+  "homepage": "https://github.com/tresende/notas-fiscais-alura#readme"
+}
