@@ -7,6 +7,8 @@
 	 - ES6 Modules
 	 - Fetch API
  - Using ES6 modules in Chrome
+	- Functors
+	- 
 
 ## Development Environment Setup:
 1 - Clone this repository<br />
