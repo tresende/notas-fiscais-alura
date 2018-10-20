@@ -19,7 +19,7 @@ export const notasService = {
     },
 
     sumItems(code) {
-        const filterItems = filterItemsByCode.bind(null, code);
+        const filterItems = partialize(filterItemsByCode, code);
         return this.listaAll().then(sumItems(code));
     }
 }
