@@ -1,5 +1,5 @@
 import { handleStatus } from './../utils/promise-helpers.js';
-import { partialize, compose } from './../utils/operators.js';
+import { partialize, compose, pipe } from './../utils/operators.js';
 const API = 'http://localhost:3000/notas'
 
 const getItemsFromNotas = notas => notas.$flatMap(nota => nota.itens);
@@ -19,7 +19,8 @@ export const notasService = {
     sumItems(code) {
         // utilizando partialize
         const filterItems = partialize(filterItemsByCode, code);
-        const sumItems = compose(sumItemsValue, filterItems, getItemsFromNotas);
+        //const sumItems = compose(sumItemsValue, filterItems, getItemsFromNotas);
+        const sumItems = pipe(getItemsFromNotas, filterItems, sumItemsValue);
         // realizando a composição
         return this.listAll().then(sumItems);
     }
