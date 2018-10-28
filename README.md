@@ -10,6 +10,8 @@
 - Course content
 	- Functors
 	- Function Composition
+	- Point Free Functions
+	- Pipe x Compose
 
 ## Development Environment Setup:
 1 - Clone this repository<br />
