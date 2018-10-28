@@ -5,7 +5,6 @@ export const pipe = (...fns) => value => fns.reduce((previousValue, fn) => fn(pr
 // export const pipe = function (...fns) {
 //     return function (value) {
 //         return fns.reduce(function (previousValue, fn) {
-//             console.log(fn);
 //             return fn(previousValue)
 //         }, value)
 //     }
