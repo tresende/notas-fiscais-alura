@@ -1,4 +1,4 @@
-import { takeUntil, debounceTime } from './operators.js';
+import { takeUntil, debounceTime, partialize } from './operators.js';
 import './array-helpers.js';
 
 export default () => {
@@ -20,4 +20,29 @@ export default () => {
     ehDivisivelPorDois(10); // true
     ehDivisivelPorDois(15); // false
     ehDivisivelPorDois(20); // true
+
+    const partializedTakeUntil = partialize(takeUntil, 3);
+    const doTake = partializedTakeUntil(() => console.log('doTake'));
+
+    doTake();
+    doTake();
+    doTake();
+    doTake();
+
+
+    const p1 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('Promisse 1 Terminou!');
+        }, 3000)
+    });
+
+    const p2 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            reject('Cancelado!');
+        }, 1000)
+    });
+
+    Promise.race([p1, p2])
+        .then(console.log)
+        .catch(console.log);
 }
