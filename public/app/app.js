@@ -2,6 +2,7 @@ import { log, timeoutPromise, retry } from './utils/promise-helpers.js';
 import { takeUntil, debounceTime, partialize, pipe } from './utils/operators.js';
 import { notasService as service } from './nota/service.js';
 import './utils/array-helpers.js';
+import { EventEmitter } from './utils/event-emitter.js';
 //só para testes
 import playground from './utils/playground.js';
 
@@ -14,6 +15,7 @@ playground();
 
 const action = operations(() =>
     retry(3, 3000, () => timeoutPromise(200, service.sumItems('2143')))
+        .then(total => EventEmitter.emit('itensTotalizados', total))
         .then(log)
         .catch(log)
 );
