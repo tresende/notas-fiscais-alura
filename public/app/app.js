@@ -3,6 +3,7 @@ import { takeUntil, debounceTime, partialize, pipe } from './utils/operators.js'
 import { notasService as service } from './nota/service.js';
 import './utils/array-helpers.js';
 import { EventEmitter } from './utils/event-emitter.js';
+import { Maybe } from './utils/maybe.js';
 //só para testes
 import playground from './utils/playground.js';
 

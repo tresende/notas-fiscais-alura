@@ -1,5 +1,6 @@
 import { takeUntil, debounceTime, partialize } from './operators.js';
 import './array-helpers.js';
+import { Maybe } from './maybe.js';
 
 export default () => {
 
@@ -45,4 +46,11 @@ export default () => {
     Promise.race([p1, p2])
         .then(console.log)
         .catch(console.log);
+
+    const resultado = Maybe
+        .of(null)
+        .map(value => value + 10)
+        .map(value => value + 30)
+        .getOrElse(0)
+    alert(resultado)
 }
