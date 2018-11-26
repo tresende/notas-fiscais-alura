@@ -1,4 +1,4 @@
-import { takeUntil, debounceTime, partialize } from './operators.js';
+import { takeUntil, debounceTime, partialize, pipe } from './operators.js';
 import './array-helpers.js';
 import { Maybe } from './maybe.js';
 
@@ -52,5 +52,14 @@ export default () => {
         .map(value => value + 10)
         .map(value => value + 30)
         .getOrElse(0)
-    alert(resultado)
+    console.log(resultado)
+
+
+    const textToArray = textM => textM.map(text => Array.from(text));
+    const arrayToText = arrayM => arrayM.map(array => array.join(''));
+    const transform = pipe(textToArray, arrayToText);
+    // const result = transform(Maybe.of('Cangaceiro'));
+    const result = transform(Maybe.of(null));
+
+    console.log(result.getOrElse(''));
 }
